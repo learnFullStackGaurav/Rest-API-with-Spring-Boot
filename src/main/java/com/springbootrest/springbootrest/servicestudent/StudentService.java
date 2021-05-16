@@ -14,4 +14,5 @@ public interface StudentService {
 
 	public Student deleteStudent(int studentId);
 	
+	public Student updateStudent(Student student);
 }

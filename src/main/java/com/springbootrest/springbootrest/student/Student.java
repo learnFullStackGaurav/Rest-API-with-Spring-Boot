@@ -1,24 +1,29 @@
 package com.springbootrest.springbootrest.student;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Student {
 	
 	private String studentName;
-	private int rollNo;
+	@Id
+	private int id;
 	private String branch;
 	
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Student(String studentName, int rollNo, String branch) {
+	public Student(String studentName, int id, String branch) {
 		super();
 		this.studentName = studentName;
-		this.rollNo = rollNo;
+		this.id = id;
 		this.branch = branch;
 	}
 	@Override
 	public String toString() {
-		return "Student [studentName=" + studentName + ", rollNo=" + rollNo + ", branch=" + branch + "]";
+		return "Student [studentName=" + studentName + ", id=" + id + ", branch=" + branch + "]";
 	}
 	public String getStudentName() {
 		return studentName;
@@ -26,11 +31,11 @@ public class Student {
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-	public int getRollNo() {
-		return rollNo;
+	public int getid() {
+		return id;
 	}
-	public void setRollNo(int rollNo) {
-		this.rollNo = rollNo;
+	public void setid(int id) {
+		this.id = id;
 	}
 	public String getBranch() {
 		return branch;

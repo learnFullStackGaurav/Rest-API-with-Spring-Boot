@@ -3,6 +3,8 @@ package com.springbootrest.springbootrest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,7 +44,12 @@ public class MyController {
 	
 	
 	@DeleteMapping("/students/{studentid}")
-	public Student deleteStudent(@PathVariable int studentid) {
-		return this.studentService.deleteStudent(studentid);
+	public ResponseEntity<HttpStatus> deleteStudent(@PathVariable String studentid) {
+		try {
+			this.studentService.deleteStudent(Integer.parseInt(studentid));
+				return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
+		}
 	}
 }
